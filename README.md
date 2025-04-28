@@ -16,8 +16,8 @@ The `Models` folder contains each model I use along with all dependent modules a
 For more information about MoVQGAN, visit the original repository:  https://github.com/ai-forever/MoVQGAN
 
 
-DDPM: https://drive.google.com/uc?export=download&id=1bFkk9Wd5Y-ndsbInitEoDVZRAE-4gKVc
+DDPM: [Download](https://drive.google.com/uc?export=download&id=1bFkk9Wd5Y-ndsbInitEoDVZRAE-4gKVc)
 
-GAN: https://drive.google.com/uc?export=download&id=12L6JPGABnWTmtrLk0-EoFTJ-jPbNchfw
+GAN: [Download](https://drive.google.com/uc?export=download&id=12L6JPGABnWTmtrLk0-EoFTJ-jPbNchfw)
 
-RealNVP: https://drive.google.com/uc?export=download&id=1ZMV4CSGATFh3aydk-N26caHav9IfTkjc
+RealNVP: [Download](https://drive.google.com/uc?export=download&id=1ZMV4CSGATFh3aydk-N26caHav9IfTkjc)
