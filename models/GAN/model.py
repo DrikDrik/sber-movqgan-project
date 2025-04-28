@@ -97,10 +97,10 @@ def compute_gradient_penalty(critic, real_samples, fake_samples, device):
     gp = ((grad_norm - 1) ** 2).mean()
     return gp
 
-def generate_new_codes(generator, latent_dim, c=4, h=22, w=22, device="cpu"):
+def generate_new_codes(generator, latent_dim, n_samples=16, c=4, h=22, w=22, device="cpu"):
     generator.eval()
     with torch.no_grad():
-        noise = torch.randn(16, latent_dim, device=device)  # Генерируем 16 примеров
+        noise = torch.randn(n_samples, latent_dim, device=device) 
         generated_codes = generator(noise)
     generator.train()
     return generated_codes
