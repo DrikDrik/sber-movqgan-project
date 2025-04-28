@@ -1,6 +1,6 @@
 # sber-movqgan-project
 This repository contains a university project related to direct latent space generation of the state-of-the-art image encoder developed by Sber: MoVQGAN.
-Here I use simple generative architectures: DDPM, WGAN with aelf-attention and RealNVP. 
+Here I use simple generative architectures: DDPM, WGAN with self-attention and RealNVP. 
 
 
 The repository contains pipelines both for training and inference allowing users to load my pre-trained checkpoint weights and fine-tune models optionally. 
