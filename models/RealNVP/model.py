@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.distributions as D
 
 class RealNVP(nn.Module):
-    def __init__(self):
+    def __init__(self, device='cuda'):
         super(RealNVP, self).__init__()
 
         pixels = 4 * 22 * 22
