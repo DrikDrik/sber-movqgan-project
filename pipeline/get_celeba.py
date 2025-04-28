@@ -1,5 +1,8 @@
-utils.download_datasets.main()
+import torchvision.transforms as transforms
+from utils import download_datasets
 from utils.celeba import CelebADataset as CelebA
+
+utils.download_datasets.main()
 class CelebaCustomDataset(CelebA):
     def __getitem__(self, idx):
         image, _ = super().__getitem__(idx)
