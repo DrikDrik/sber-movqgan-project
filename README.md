@@ -1,21 +1,26 @@
 # sber-movqgan-project
-This repository contains a unversity project related to direct latent space generation of the SotA image encoder from Sber: MoVQGAN.
-Here i use simple generative architectures: DDPM, WGAN with Self Attention and RealNVP. 
+This repository contains a university project related to direct latent space generation of the state-of-the-art image encoder developed by Sber: MoVQGAN.
+Here I use simple generative architectures: DDPM, WGAN with aelf-attention and RealNVP. 
 
 
-The repository contains pipelines both for training and inference with an ability to load my chekpoint weights and fine-tune models if needed. 
-All needed are requirements located in the 'requirements.txt' file.
+The repository contains pipelines both for training and inference allowing users to load my pre-trained checkpoint weights and fine-tune models optionally. 
+All necessary requirements are listed in the 'requirements.txt' file
 
 
-The 'pipeline' folder contains importing original MoVQGAN architetcture including special algorithms to shift datasets with its' encoder into latent space and to save .zip files containing it. Also there is a possibility to load the raw aligned Celeba dataset before shifting into latent space. 
+The 'pipeline' folder contains the code for importing the original MoVQGAN architecture including special algorithms for encoding datasets into the latent space and saving the resulting latent space data as .zip files. Also there is an option to load the raw aligned Celeba dataset before encoding into the latent space. 
 
 
-The 'Models' folder containts each model i use with every dependent module and class.
+The 'Models' folder contains each model I use along with all dependent modules and classes.
 
 
 For more information about MoVQGAN: https://github.com/ai-forever/MoVQGAN (original repository)
 
+For more information about MoVQGAN, visit the original repository.
 
+Model Weights
+DDPM model weights
+GAN model weights
+RealNVP model weights
 Weights for used models:
 
 DDPM: https://drive.google.com/uc?export=download&id=1bFkk9Wd5Y-ndsbInitEoDVZRAE-4gKVc
