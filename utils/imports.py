@@ -2,6 +2,7 @@ import torch
 import requests
 import numpy as np
 import sys
+import git
 from PIL import Image
 from io import BytesIO
 from torch.nn.functional import mse_loss, l1_loss
