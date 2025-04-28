@@ -13,5 +13,7 @@ For more information about MoVQGAN: https://github.com/ai-forever/MoVQGAN (origi
 
 Weights for used models:
 DDPM: https://drive.google.com/uc?export=download&id=1bFkk9Wd5Y-ndsbInitEoDVZRAE-4gKVc
+
 GAN: https://drive.google.com/uc?export=download&id=12L6JPGABnWTmtrLk0-EoFTJ-jPbNchfw
+
 RealNVP: https://drive.google.com/uc?export=download&id=1ZMV4CSGATFh3aydk-N26caHav9IfTkjc
