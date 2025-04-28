@@ -8,7 +8,7 @@ from models.DDPM.model import generate_new_images
 from pipeline.movqgan import decode
 from pipeline.show import show_images
 
-def training_loop(ddpm, loader, n_epochs, optim, device, model, display=True, store_path="project_ddpm_best.ckpt", store_path2 = "/content/chekpoints/project_ddpm_regular.ckpt"):
+def training_loop(ddpm, loader, n_epochs, optim, device, model, display=True, store_path="content/checkpoints/project_ddpm_best.ckpt", store_path2 = "/content/chekpoints/project_ddpm_regular.ckpt"):
     mse = nn.MSELoss()
     scheduler = lr_scheduler.ExponentialLR(optim, gamma=0.98)
     best_loss = float("inf")
