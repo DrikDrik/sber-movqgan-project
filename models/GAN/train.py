@@ -3,8 +3,11 @@ import torch
 import torch.nn.functional as F
 from torch.optim import lr_scheduler
 from tqdm import tqdm
+from models.DDPM.model import generate_new_images
+from pipeline.movqgan import decode
+from pipeline.show import show_images
 
-def training_loop(generator, critic, loader, n_epochs, optim_g, optim_c, device, n_critic=5, n_sched=19, display=True, store_path="gan_model.pt", store_path2='/content/drive/MyDrive/model/gan_regular2.ckpt'):
+def training_loop(generator, critic, loader, n_epochs, optim_g, optim_c, device, model, n_critic=5, n_sched=19, display=True, store_path="gan_model.pt", store_path2='/content/drive/MyDrive/model/gan_regular2.ckpt'):
     scheduler_g = lr_scheduler.ExponentialLR(optim_g, gamma=0.98)
     scheduler_c = lr_scheduler.ExponentialLR(optim_c, gamma=0.98)
     best_loss = float("inf")
