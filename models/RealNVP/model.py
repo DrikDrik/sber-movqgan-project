@@ -1,3 +1,7 @@
+import torch
+import torch.nn as nn
+import torch.distributions as D
+
 class RealNVP(nn.Module):
     def __init__(self):
         super(RealNVP, self).__init__()
