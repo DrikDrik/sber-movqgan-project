@@ -17,7 +17,7 @@ def load_model(model_name='67M', pretrained=True, device='cuda'):
     model = get_movqgan_model(model_name, pretrained=pretrained, device=device)
     return model
 
-def main():
+def get_model():
     clone_movqgan_repo()  
     model = load_model()
     return model
