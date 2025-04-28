@@ -1,7 +1,7 @@
 import os
 import sys
 import git
-
+import torch
 def clone_movqgan_repo():
     if not os.path.exists('MoVQGAN'):
         print("Cloning MoVQGAN repository...")
