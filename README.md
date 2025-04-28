@@ -3,7 +3,7 @@ This repository contains a unversity project related to direct latent space gene
 Here i use simple generative architectures: DDPM, WGAN with Self Attention and RealNVP. 
 
 
-The repository contains piplines both for training and inference with an ability to load my chekpoint weights and fine-tune models if needed. 
+The repository contains pipelines both for training and inference with an ability to load my chekpoint weights and fine-tune models if needed. 
 All needed requirements located in requirements.txt
 
 
