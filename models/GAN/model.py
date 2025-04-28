@@ -4,7 +4,6 @@ import torch.nn.functional as F
 import torch.optim as optim
 import numpy as np
 
-# Self-Attention модуль
 class SelfAttention(nn.Module):
     def __init__(self, in_channels):
         super(SelfAttention, self).__init__()
@@ -24,7 +23,6 @@ class SelfAttention(nn.Module):
         out = out.view(batch_size, C, H, W)
         return x + self.gamma * out
 
-# Генератор
 class Generator(nn.Module):
     def __init__(self, latent_dim=128, n_groups=8):
         super(Generator, self).__init__()
@@ -67,7 +65,7 @@ class Critic(nn.Module):
         self.gn4 = nn.GroupNorm(n_groups, 128)
         self.conv3 = nn.Conv2d(128, 256, kernel_size=3, stride=2, padding=1)
         self.gn5 = nn.GroupNorm(n_groups, 256)
-        self.fc1 = nn.Linear(256 * 3 * 3, 128)  # Предполагая, что после свёрток размер 3x3
+        self.fc1 = nn.Linear(256 * 3 * 3, 128)
         self.gn6 = nn.GroupNorm(n_groups, 128)
         self.fc2 = nn.Linear(128, 1)
 
