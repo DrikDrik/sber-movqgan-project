@@ -61,7 +61,6 @@ class AttentionBlock(nn.Module):
         attn = torch.einsum("bhdn,bhdm->bhnm", q, k) * (self.head_dim ** -0.5)
         attn = torch.softmax(attn, dim=-1)
         out = torch.einsum("bhnm,bhdm->bhdn", attn, v)
-        # Use reshape to handle non-contiguous tensors
         out = out.reshape(B, C, H, W)
         out = self.proj(out)
         return x + out
