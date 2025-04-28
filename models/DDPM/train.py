@@ -30,9 +30,6 @@ def training_loop(ddpm, loader, n_epochs, optim, device, model, display=True, st
 
             noisy_imgs = ddpm(x0, t, eta) 
 
-
-            # Getting model estimation of noise based on the images and the time-step
-
             time_tensor = torch.full((x0.shape[0],), t, dtype=torch.long, device=device)
 
             eta_theta = ddpm.backward(noisy_imgs, time_tensor)
