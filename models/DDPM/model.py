@@ -176,3 +176,33 @@ class DDPM(nn.Module):
     def backward(self, x, t):
         eta_pred = self.network(x, t)
         return eta_pred
+
+def generate_new_images(ddpm, n_samples=16, device=None, frames_per_gif=100,
+                        gif_name="sampling.gif", c=4, h=22, w=22):
+    total_steps = ddpm.n_steps
+    frame_idxs = np.linspace(0, total_steps - 1, frames_per_gif).astype(np.uint)
+    frames = []
+
+    with torch.no_grad():
+        if device is None:
+            device = ddpm.device
+
+        x = torch.randn([n_samples, c, h, w], device=device) 
+
+        for idx, t in enumerate(range(999, -1, -1)): 
+            time_tensor = torch.full((n_samples,), t, dtype=torch.long, device=device) # [n_samples, 1].long()
+            eta_theta = ddpm.backward(x, time_tensor)
+            alpha_t = ddpm.alphas[t]
+            alpha_t_bar = ddpm.alpha_bars[t]
+
+            eps = 1e-8
+            x = 1/(torch.sqrt(alpha_t + eps)) * (x - ((1 - alpha_t) / (torch.sqrt(1 - alpha_t_bar + eps)))* eta_theta)
+
+            if t > 0:
+                z = torch.randn(n_samples, c, h, w).to(device)
+
+                sigma_t = ((1-ddpm.alpha_bars[t-1])/(1-ddpm.alpha_bars[t])*ddpm.betas[t])**0.5 
+
+                x = x + sigma_t * z
+
+    return x
