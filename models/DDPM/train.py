@@ -52,7 +52,9 @@ def training_loop(ddpm, loader, n_epochs, optim, device, model, display=True, st
               print(step, loss.item(), t)
 
         if display:
+            model.eval()
             show_images(decode(model, generate_new_images(ddpm, c=4, h=22, w=22, device=device)), f"Images generated at epoch {epoch + 1}")
+            model.train()
 
         log_string = f"Loss at epoch {epoch + 1}: {epoch_loss:.3f}"
         
