@@ -65,7 +65,7 @@ def training_loop(generator, critic, loader, n_epochs, optim_g, optim_c, device,
         # Отображение сгенерированных кодов
         if display:
             generated_codes = generate_new_codes(generator, latent_dim, c=4, h=22, w=22, device=device)
-            show_images(decode(inverse_normalize_fn(generated_codes)), f"Latent codes generated at epoch {epoch + 1}")
+            show_images(decode(model, inverse_normalize_fn(generated_codes)), f"Latent codes generated at epoch {epoch + 1}")
 
         # Сохранение моделей
         log_string = f"Loss at epoch {epoch + 1}: {epoch_loss:.3f}"
