@@ -7,7 +7,7 @@ The repository contains piplines both for training and inference with an ability
 All needed requirements located in requirements.txt
 
 
-'pipeline' folder contains importing original MoVQGAN architetcture including special algorithms to shift datasets with its' encoder into latent space and to save .zip files containing it. Also there is a possibility to load the raw aligned Celeba dataset before shifting into latent space. 
+The 'pipeline' folder contains importing original MoVQGAN architetcture including special algorithms to shift datasets with its' encoder into latent space and to save .zip files containing it. Also there is a possibility to load the raw aligned Celeba dataset before shifting into latent space. 
 
 
 The 'Models' folder containts each model i use with every dependent module and class.
