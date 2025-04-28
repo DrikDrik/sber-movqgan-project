@@ -13,7 +13,7 @@ The `pipeline` folder contains the code for importing the original MoVQGAN archi
 The `Models` folder contains each model I use along with all dependent modules and classes.
 
 
-For more information about MoVQGAN, visit the original repository:  https://github.com/ai-forever/MoVQGAN
+For more information about MoVQGAN, visit the [original repository](https://github.com/ai-forever/MoVQGAN).
 
 
 DDPM: [Download](https://drive.google.com/uc?export=download&id=1bFkk9Wd5Y-ndsbInitEoDVZRAE-4gKVc)
