@@ -9,6 +9,7 @@ from torch.nn.functional import mse_loss, l1_loss
 from movqgan import get_movqgan_model
 import einops
 import random
+import math
 import imageio
 from argparse import ArgumentParser
 from tqdm.auto import tqdm
