@@ -1,3 +1,10 @@
+import os
+import zipfile
+import numpy as np
+import torch
+from torch.utils.data import DataLoader, Dataset
+from tqdm import tqdm
+
 def save_latent_representations(model, dataset, batch_size=64, save_dir='latent_representations'):
     """
     Сохраняет латентные представления модели в указанную папку.
