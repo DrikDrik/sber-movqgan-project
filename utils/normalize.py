@@ -1,3 +1,5 @@
+import torch
+
 def find_min_max(loader):
   minn = 0
   maxx = 0
