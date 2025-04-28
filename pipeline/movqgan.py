@@ -21,3 +21,11 @@ def main():
     clone_movqgan_repo()  
     model = load_model()
     return model
+
+def decode(h):
+  with torch.no_grad():
+    h2 = model.quant_conv(h)
+    zq, _, _  = model.quantize(h2)
+    z = model.post_quant_conv(zq)
+    out = model.decoder(z, zq)
+    return out
