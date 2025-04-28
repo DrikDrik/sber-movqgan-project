@@ -27,12 +27,10 @@ def training_loop(generator, critic, loader, n_epochs, optim_g, optim_c, device,
             real_samples = batch.to(device)
             batch_size = real_samples.size(0)
 
-            # Обновление критика (5 раз)
             critic_loss = 0.0
             noise = torch.randn(batch_size, latent_dim, device=device)
             fake_samples = generator(noise)
             for _ in range(n_critic):
-
 
                 real_pred = critic(real_samples)
                 fake_pred = critic(fake_samples.detach())
@@ -43,7 +41,6 @@ def training_loop(generator, critic, loader, n_epochs, optim_g, optim_c, device,
                 optim_c.step()
                 critic_loss += c_loss.item() / 5
 
-            # Обновление генератора
             noise = torch.randn(batch_size, latent_dim, device=device)
             fake_samples = generator(noise)
             fake_pred = critic(fake_samples)
@@ -62,12 +59,10 @@ def training_loop(generator, critic, loader, n_epochs, optim_g, optim_c, device,
             if step % 10 == 0:
                 print(f"Step {step}, Critic Loss: {critic_loss:.4f}, Generator Loss: {g_loss.item():.4f}")
 
-        # Отображение сгенерированных кодов
         if display:
             generated_codes = generate_new_codes(generator, latent_dim, c=4, h=22, w=22, device=device)
             show_images(decode(model, inverse_normalize_fn(generated_codes)), f"Latent codes generated at epoch {epoch + 1}")
 
-        # Сохранение моделей
         log_string = f"Loss at epoch {epoch + 1}: {epoch_loss:.3f}"
         torch.save({
             'generator': generator.state_dict(),
