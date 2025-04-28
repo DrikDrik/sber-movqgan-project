@@ -1,3 +1,9 @@
+import random
+import torch
+import torch.nn.functional as F
+from torch.optim import lr_scheduler
+from tqdm import tqdm
+
 def training_loop(generator, critic, loader, n_epochs, optim_g, optim_c, device, n_critic=5, n_sched=19, display=True, store_path="gan_model.pt", store_path2='/content/drive/MyDrive/model/gan_regular2.ckpt'):
     scheduler_g = lr_scheduler.ExponentialLR(optim_g, gamma=0.98)
     scheduler_c = lr_scheduler.ExponentialLR(optim_c, gamma=0.98)
