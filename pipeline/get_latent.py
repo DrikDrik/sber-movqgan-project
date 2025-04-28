@@ -38,3 +38,37 @@ def zip_dataset(input_dir, output_zip):
                 arcname = os.path.relpath(file_path, input_dir)
                 zipf.write(file_path, arcname)
     print(f"Архив создан: {output_zip}")
+
+class LatentDataset(Dataset):
+    def __init__(self, latent_dir, transform=None):
+        """
+        Конструктор датасета.
+
+        :param latent_dir: Путь к папке с файлами .npy (латентными представлениями).
+        """
+        self.latent_dir = latent_dir
+        # Собираем список всех .npy файлов в папке и сортируем их
+        self.latent_files = sorted([f for f in os.listdir(latent_dir) if f.endswith('.npy')])
+        self.transform = transform
+
+    def __len__(self):
+        """
+        Возвращает количество элементов в датасете.
+        """
+        return len(self.latent_files)
+
+    def __getitem__(self, idx):
+        """
+        Загружает латентное представление по индексу.
+
+        :param idx: Индекс элемента.
+        :return: Тензор с латентным представлением.
+        """
+
+        latent_path = os.path.join(self.latent_dir, self.latent_files[idx])
+        latent = np.load(latent_path)
+        latent = torch.from_numpy(latent).float()  # Тип float для совместимости с PyTorch
+        if self.transform:
+            latent = self.transform(latent)
+
+        return latent
