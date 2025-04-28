@@ -46,7 +46,7 @@ def training_loop(ddpm, loader, n_epochs, optim, device, display=True, store_pat
             show_images(decode(generate_new_images(ddpm, c=4, h=22, w=22, device=device)), f"Images generated at epoch {epoch + 1}")
 
         log_string = f"Loss at epoch {epoch + 1}: {epoch_loss:.3f}"
-        store_path2 = "/content/drive/MyDrive/model/project_ddpm_regular2.ckpt"
+        store_path2 = "/content/drive/MyDrive/model/project_ddpm_regular.ckpt"
         torch.save(ddpm.state_dict(), store_path2)
 
         if best_loss > epoch_loss:
