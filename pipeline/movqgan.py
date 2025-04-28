@@ -12,8 +12,6 @@ def clone_movqgan_repo():
 def load_model(model_name='67M', pretrained=True, device='cuda'):
     sys.path.append(os.path.join(os.getcwd(), 'MoVQGAN'))
     from movqgan import get_movqgan_model
-
-    # Загружаем модель
     model = get_movqgan_model(model_name, pretrained=pretrained, device=device)
     return model
 
