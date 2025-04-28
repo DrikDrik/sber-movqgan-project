@@ -22,7 +22,7 @@ def get_model():
     model = load_model()
     return model
 
-def decode(h):
+def decode(model, h):
   with torch.no_grad():
     h2 = model.quant_conv(h)
     zq, _, _  = model.quantize(h2)
