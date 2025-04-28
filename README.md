@@ -4,7 +4,7 @@ Here i use simple generative architectures: DDPM, WGAN with Self Attention and R
 
 
 The repository contains pipelines both for training and inference with an ability to load my chekpoint weights and fine-tune models if needed. 
-All needed requirements located in requirements.txt
+All needed are requirements located in the 'requirements.txt' file.
 
 
 The 'pipeline' folder contains importing original MoVQGAN architetcture including special algorithms to shift datasets with its' encoder into latent space and to save .zip files containing it. Also there is a possibility to load the raw aligned Celeba dataset before shifting into latent space. 
